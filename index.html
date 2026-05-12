@@ -37,8 +37,7 @@ window.onload = async function() {
   const token = new URLSearchParams(hash.substring(1)).get("access_token");
   document.getElementById("status").innerHTML = '<div class="ok">✅ Token OK, consultando Power BI...</div>';
   try {
-    const url = `https://api.powerbi.com/v1.0/myorg/groups/${CONFIG.workspaceId}/datasets/${CONFIG.datasetId}/tables`;
-    const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+const url = `https://api.powerbi.com/v1.0/myorg/groups/${CONFIG.workspaceId}/datasets`;    const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
     const data = await res.json();
     document.getElementById("resultado").textContent = JSON.stringify(data, null, 2);
     document.getElementById("status").innerHTML = '<div class="ok">✅ Conexión exitosa con Power BI</div>';
